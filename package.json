@@ -1,8 +1,8 @@
 {
   "name": "fr-task",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "https://xandronak.github.io/fr-task",
+    "private": true,
+    "homepage": "https://xandronak.github.io/fr-task",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -16,7 +16,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -b main -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

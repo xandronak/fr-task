@@ -5,25 +5,25 @@ const OFFERS_ITEMS = [
     {
         title: "Move the borders of reality!",
         description: "Go on a space adventure - it's possible with us!",
-        backgroundUrl: "/assets/images/space-1.png",
+        backgroundUrl: `${process.env.PUBLIC_URL}/assets/images/space-1.png`,
         size: "wide",
     },
     {
         title: "Space is not just stars and planets",
         description: "Go on a space adventure",
-        backgroundUrl: "/assets/images/space-2.png",
+        backgroundUrl: `${process.env.PUBLIC_URL}/assets/images/space-2.png`,
         size: "default",
     },
     {
         title: "For those who dream of stars",
         description: "Our offer: make your dream come true",
-        backgroundUrl: "/assets/images/space-3.png",
+        backgroundUrl: `${process.env.PUBLIC_URL}/assets/images/space-3.png`,
         size: "default",
     },
     {
         title: "Fulfill your fantastic dreams",
         description: "Space has never been so close",
-        backgroundUrl: "/assets/images/space-4.png",
+        backgroundUrl: `${process.env.PUBLIC_URL}/assets/images/space-4.png`,
         size: "wide",
     }
 ]

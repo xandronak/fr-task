@@ -25,8 +25,8 @@ const Header = () => {
             <Logo className="header__logo" onClick={handleScrollToTop} />
 
             <nav className={`header__nav ${open ? 'header__nav--open' : ''}`}>
-                <a className="header__link" href="/#" onClick={handleCloseOnClick}>Home</a>
-                <a className="header__link" href="/#offers" onClick={handleCloseOnClick}>Products</a>
+                <a className="header__link" href="#" onClick={handleCloseOnClick}>Home</a>
+                <a className="header__link" href="#offers" onClick={handleCloseOnClick}>Products</a>
                 <Cart className="header__cart" onClick={handleCloseOnClick} />
             </nav>
 
