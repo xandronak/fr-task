@@ -1,0 +1,43 @@
+@use 'styles/variables';
+
+// Common Horizontal Paddings Mixin
+@mixin horizontal-padding {
+  padding-left: variables.$horizontal-padding-desktop;
+  padding-right: variables.$horizontal-padding-desktop;
+
+  @include tablet {
+    padding-left: variables.$horizontal-padding-tablet;
+    padding-right: variables.$horizontal-padding-tablet;
+  }
+
+  @include mobile {
+    padding-left: variables.$horizontal-padding-mobile;
+    padding-right: variables.$horizontal-padding-mobile;
+  }
+}
+
+// Media Query Mixins
+@mixin mobile {
+  @media (max-width: (variables.$breakpoint-tablet - 1)) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: variables.$breakpoint-tablet) and (max-width: (variables.$breakpoint-desktop - 1)) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: variables.$breakpoint-desktop) {
+    @content;
+  }
+}
+
+// Text Gradient
+@mixin gradient-text($from, $to) {
+  background: linear-gradient(90deg, $from, $to);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

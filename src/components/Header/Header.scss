@@ -1,0 +1,132 @@
+@use "styles/mixins";
+@use "styles/variables";
+
+.header {
+  @include mixins.horizontal-padding;
+
+  display: flex;
+  position: sticky;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  background-color: variables.$color-black;
+  z-index: 10;
+
+  &__logo {
+    width: 104px;
+    cursor: pointer;
+  }
+
+  &__cart {
+    width: 24px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.6;
+
+      path {
+        fill: url(#cart_gradient);
+      }
+    }
+  }
+
+  &__link {
+    color: variables.$color-white;
+    text-decoration: none;
+    font-size: 0.9rem;
+
+    &:hover {
+      @include mixins.gradient-text(#EBFF00 18%, #FF70D9 76%);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+
+    &--open {
+      display: flex;
+    }
+  }
+
+  &__burger-menu {
+    display: none;
+    flex-direction: column;
+    background-color: transparent;
+    border: none;
+    gap: 6px;
+    cursor: pointer;
+
+    .burger-menu__line {
+      height: 2px;
+      width: 26px;
+      background-color: variables.$color-white;
+      transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      transform-origin: center;
+    }
+
+    &--open .burger-menu__line:first-child {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    &--open .burger-menu__line:nth-child(2) {
+      opacity: 0;
+    }
+
+    &--open .burger-menu__line:last-child {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+  }
+
+  @include mixins.tablet {
+    &__logo {
+      width: 72px;
+    }
+
+    &__link {
+      font-size: 1.125rem;
+    }
+
+    &__nav {
+      gap: 3rem;
+    }
+  }
+
+  @include mixins.mobile {
+    height: 48px;
+
+    &__logo {
+      width: 72px;
+    }
+
+    &__burger-menu {
+      display: flex;
+    }
+
+    &__nav {
+      display: flex;
+      position: absolute;
+      z-index: -1;
+      top: 48px;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      background-color: variables.$color-black;
+      padding: 3rem;
+      gap: 2rem;
+      transform: translateY(calc(-100% - 48px));
+      transition: transform 0.5s ease-in-out;
+
+      &--open {
+        transform: translateY(0px);
+      }
+    }
+
+    &__link {
+      font-size: 2rem;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+@use "styles/mixins";
+@use "styles/variables";
+
+.footer {
+  background-color: variables.$color-black;
+  color: variables.$color-secondary;
+  height: 128px;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__icon {
+    width: 80px;
+    cursor: pointer;
+
+    // Looks funny :)
+    &--animated {
+      animation: rocket-animation 2s infinite ease-in-out;
+    }
+  }
+
+  &__text {
+    font-size: 0.9rem;
+    font-weight: 900;
+  }
+
+  @include mixins.tablet {
+    padding-bottom: 2rem;
+
+    &__text {
+      font-size: 1.125rem;
+    }
+  }
+
+  @include mixins.mobile {
+    padding-bottom: 2rem;
+
+    &__text {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+@keyframes rocket-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(2rem, -3rem);
+  }
+}

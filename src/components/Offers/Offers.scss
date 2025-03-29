@@ -1,0 +1,129 @@
+@use "styles/variables";
+@use "styles/mixins";
+
+.offers {
+  @include mixins.horizontal-padding;
+
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  background: linear-gradient(190deg, variables.$color-background-dark-blue 0%, variables.$color-background-light-blue 100%);
+
+  &__title {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+    margin-top: 3.1rem;
+    overflow: hidden;
+
+    .offers-info__title {
+      font-size: 1.6rem;
+      font-weight: 900;
+    }
+
+    .offers-info__description {
+      font-size: 1rem;
+      opacity: 0.6;
+    }
+
+    .offers-info__read-more {
+      color: variables.$color-secondary;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      font-weight: 900;
+
+      &:hover {
+        opacity: 0.6;
+      }
+
+      &::after {
+        content: 'Read more';
+        transition: content 0.5s;
+      }
+    }
+
+    .offers-info__more-info {
+      max-height: 0;
+      transition: max-height 0.5s ease-in-out;
+    }
+
+    .offers-info__read-more-toggle:checked {
+      ~ .offers-info__read-more::after {
+        content: 'Show less';
+      }
+
+      ~ .offers-info__more-info {
+        max-height: 300px;
+        overflow-y: scroll;
+      }
+    }
+  }
+
+  @include mixins.tablet {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+
+    &__grid {
+      gap: 1.875rem;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+      margin-bottom: 1.875rem;
+    }
+
+    &__info {
+      gap: 0.875rem;
+      margin-top: 3.45rem;
+
+      .offers-info__title {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  @include mixins.mobile {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    &__title {
+      font-size: 1.8rem;
+      margin-bottom: 3rem;
+    }
+
+    &__info {
+      gap: 2rem;
+      margin-top: 5rem;
+
+      .offers-info__title {
+        font-size: 1.8rem;
+      }
+
+      .offers-info__description {
+        font-size: 1.4rem;
+      }
+
+      .offers-info__read-more {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

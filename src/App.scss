@@ -1,0 +1,39 @@
+@use "styles/variables";
+@use "styles/mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  scroll-padding-top: 80px;
+
+  @include mixins.tablet {
+    font-size: 16px;
+  }
+
+  @include mixins.mobile {
+    font-size: 10px;
+    scroll-padding-top: 48px;
+  }
+}
+
+.highlighted-text {
+  &--primary {
+    color: variables.$color-primary;
+  }
+
+  &--secondary {
+    color: variables.$color-secondary;
+  }
+}
+
+.app {
+  background: variables.$app-bg;
+  color: variables.$color-white;
+}
