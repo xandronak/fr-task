@@ -12,7 +12,8 @@
   justify-content: center;
 
   &__icon {
-    width: 80px;
+    width: 78px;
+    aspect-ratio: 7 / 6;
     cursor: pointer;
 
     // Looks funny :)

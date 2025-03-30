@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { ReactComponent as Rocket } from "assets/icons/rocket.svg";
 import './Footer.scss';
 
 const Footer = () => {
@@ -7,8 +6,10 @@ const Footer = () => {
 
     return (
         <footer className="footer">
-            <Rocket
+            <img
                 className={`footer__icon ${isAnimationActive ? "footer__icon--animated" : ""}`}
+                src={`${process.env.PUBLIC_URL}/assets/images/rocket.webp`}
+                alt="Rocket"
                 onClick={() => setIsAnimationActive(!isAnimationActive)}
             />
             <p className="footer__text">Exciting space adventure!</p>
